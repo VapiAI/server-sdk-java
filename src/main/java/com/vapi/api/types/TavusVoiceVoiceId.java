@@ -63,13 +63,7 @@ public final class TavusVoiceVoiceId {
         return new TavusVoiceVoiceId(value, 0);
     }
 
-    public static TavusVoiceVoiceId of(String value) {
-        return new TavusVoiceVoiceId(value, 1);
-    }
-
     public interface Visitor<T> {
-        T visit(String value);
-
         T visit(String value);
     }
 
