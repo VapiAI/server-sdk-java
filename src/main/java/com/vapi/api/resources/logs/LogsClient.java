@@ -119,7 +119,7 @@ public class LogsClient {
             if (response.isSuccessful()) {
                 LogsPaginatedResponse parsedResponse =
                         ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), LogsPaginatedResponse.class);
-                double newPageNumber = request.getPage().map(page -> page + 1).orElse(1);
+                double newPageNumber = request.getPage().map(page -> page + 1).orElse(1.0);
                 LogsGetRequest nextRequest = LogsGetRequest.builder()
                         .from(request)
                         .page(newPageNumber)

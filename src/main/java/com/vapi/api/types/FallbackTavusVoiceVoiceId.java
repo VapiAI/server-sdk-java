@@ -63,13 +63,7 @@ public final class FallbackTavusVoiceVoiceId {
         return new FallbackTavusVoiceVoiceId(value, 0);
     }
 
-    public static FallbackTavusVoiceVoiceId of(String value) {
-        return new FallbackTavusVoiceVoiceId(value, 1);
-    }
-
     public interface Visitor<T> {
-        T visit(String value);
-
         T visit(String value);
     }
 
