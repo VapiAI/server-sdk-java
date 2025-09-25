@@ -140,8 +140,8 @@ public class AsyncRawLogsClient {
                     if (response.isSuccessful()) {
                         LogsPaginatedResponse parsedResponse =
                                 ObjectMappers.JSON_MAPPER.readValue(responseBody.string(), LogsPaginatedResponse.class);
-                        Optional<Double> newPageNumber =
-                                request.getPage().map(page -> page + 1).orElse(1);
+                        Optional<Double> nextPageNumber = request.getPage().map(page -> page + 1);
+                        Optional<Double> newPageNumber = nextPageNumber.isPresent() ? nextPageNumber : Optional.of(1.0);
                         LogsGetRequest nextRequest = LogsGetRequest.builder()
                                 .from(request)
                                 .page(newPageNumber)
